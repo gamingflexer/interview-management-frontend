@@ -29,12 +29,12 @@ export default function AddNewCandidate() {
       autoComplete="off"
     >
       <Form.Item
-        label="Candidate Name"
-        name="Candidate Name"
+        label="Username"
+        name="username"
         rules={[
           {
             required: true,
-            message: "Please input Candidate Name!",
+            message: "Please input your username!",
           },
         ]}
       >
@@ -42,12 +42,12 @@ export default function AddNewCandidate() {
       </Form.Item>
 
       <Form.Item
-        label="Email"
-        name="Email"
+        label="Password"
+        name="password"
         rules={[
           {
             required: true,
-            message: "Please input Candidate Email!",
+            message: "Please input your password!",
           },
         ]}
       >
