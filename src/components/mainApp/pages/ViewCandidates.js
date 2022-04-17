@@ -1,6 +1,7 @@
 import { Box, Button } from "@chakra-ui/react";
 import React from "react";
 import "./ViewCandidates.css";
+import ViewReport from "./ViewReport";
 import {
   Table,
   Thead,
@@ -12,6 +13,7 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function ViewCandidates() {
   return (
@@ -39,7 +41,10 @@ export default function ViewCandidates() {
               <Td isNumeric>20</Td>
               <Td>Thane</Td>
               <Td className="candidate__buttons" style={{ display: "inline" }}>
-                <Button style={{ marginBottom: 10 }}>View</Button>
+                <Link to={"/viewreport"}>
+                  <Button style={{ marginBottom: 10 }}>View</Button>
+                </Link>
+
                 <Button style={{ marginBottom: 10 }}>Take Exam</Button>
                 <Button style={{ marginBottom: 10 }}>Remove</Button>
               </Td>

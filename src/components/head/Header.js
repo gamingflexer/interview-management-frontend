@@ -89,7 +89,7 @@ export default function Header() {
             Welcome To <br />
             <span className={classes.colorText}>ManageYou.</span>
           </h1>
-          <Link to="/abc">
+          <Link to="/home">
             <IconButton>
               <KeyboardArrowDownIcon
                 className={classes.goDown}
