@@ -29,20 +29,3 @@ export default function Candidates(props) {
     </>
   );
 }
-
-{
-  /* <Td>Adwait</Td>
-      <Td>adwait@gmail.com</Td>
-      <Td>8928727935</Td>
-      <Td>B.Tech</Td>
-      <Td isNumeric>20</Td>
-      <Td>Thane</Td>
-      <Td className="candidate__buttons" style={{ display: "inline" }}>
-        <Link to={"/viewreport"}>
-          <Button style={{ marginBottom: 10 }}>View</Button>
-        </Link>
-
-        <Button style={{ marginBottom: 10 }}>Take Exam</Button>
-        <Button style={{ marginBottom: 10 }}>Remove</Button>
-      </Td> */
-}
