@@ -1,6 +1,5 @@
 import React from "react";
 import "./AddNewCandidate.css";
-import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import { Form, Input, Button } from "antd";
 
@@ -29,12 +28,12 @@ export default function AddNewCandidate() {
       autoComplete="off"
     >
       <Form.Item
-        label="Username"
-        name="username"
+        label="Candidate Name"
+        name="Candidate Name"
         rules={[
           {
             required: true,
-            message: "Please input your username!",
+            message: "Please input Candidate Name!",
           },
         ]}
       >
@@ -42,12 +41,64 @@ export default function AddNewCandidate() {
       </Form.Item>
 
       <Form.Item
-        label="Password"
-        name="password"
+        label="Email"
+        name="Email"
         rules={[
           {
             required: true,
-            message: "Please input your password!",
+            message: "Please input Email!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Qualification"
+        name="Qualification"
+        rules={[
+          {
+            required: true,
+            message: "Please input Qualification!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Age"
+        name="Age"
+        rules={[
+          {
+            required: true,
+            message: "Please input Age!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Contact Number"
+        name="Contact Number"
+        rules={[
+          {
+            required: true,
+            message: "Please input Contact Number!",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Address"
+        name="Address"
+        rules={[
+          {
+            required: true,
+            message: "Please input Address!",
           },
         ]}
       >

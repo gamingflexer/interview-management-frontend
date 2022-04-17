@@ -1,6 +1,7 @@
-import { Box, Button } from "@chakra-ui/react";
-import React from "react";
+import { Button } from "@chakra-ui/react";
+import React, { useState } from "react";
 import "./ViewCandidates.css";
+import Candidates from "./Candidates";
 import ViewReport from "./ViewReport";
 import {
   Table,
@@ -16,6 +17,45 @@ import {
 import { Link } from "react-router-dom";
 
 export default function ViewCandidates() {
+  const [candidates, setCandidates] = useState([
+    {
+      id: 1,
+      name: "Adwait",
+      email: "adwaitswim@gmail.com",
+      contact: "23y80y3010270",
+      qualification: "BTech",
+      age: "20",
+      address: "Thane",
+    },
+    {
+      id: 2,
+      name: "Om",
+      email: "om@gmail.com",
+      contact: "23y80y3010270",
+      qualification: "BTech",
+      age: "20",
+      address: "Gujju",
+    },
+    {
+      id: 3,
+      name: "XYZ",
+      email: "aaqsq@gmail.com",
+      contact: "23y80y3010270",
+      qualification: "BTech",
+      age: "20",
+      address: "Pakistan",
+    },
+    {
+      id: 4,
+      name: "blah blah",
+      email: "ewfow@gmail.com",
+      contact: "fo2qf",
+      qualification: "BTech",
+      age: "20",
+      address: "Panvel",
+    },
+  ]);
+
   return (
     <div>
       <TableContainer>
@@ -33,22 +73,7 @@ export default function ViewCandidates() {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>Adwait</Td>
-              <Td>adwait@gmail.com</Td>
-              <Td>8928727935</Td>
-              <Td>B.Tech</Td>
-              <Td isNumeric>20</Td>
-              <Td>Thane</Td>
-              <Td className="candidate__buttons" style={{ display: "inline" }}>
-                <Link to={"/viewreport"}>
-                  <Button style={{ marginBottom: 10 }}>View</Button>
-                </Link>
-
-                <Button style={{ marginBottom: 10 }}>Take Exam</Button>
-                <Button style={{ marginBottom: 10 }}>Remove</Button>
-              </Td>
-            </Tr>
+            <Candidates candidates={candidates} />
           </Tbody>
           <Tfoot>
             {/* <Tr>

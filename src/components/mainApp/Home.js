@@ -3,6 +3,7 @@ import ViewCandidates from "./pages/ViewCandidates";
 import SignUp from "../SignUp/SignUp";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import AddNewCandidate from "./pages/AddNewCandidate";
+import AddNewQuestion from "./pages/AddNewQuestion";
 
 export default function Home() {
   return (
@@ -21,6 +22,10 @@ export default function Home() {
 
         <TabPanel>
           <AddNewCandidate />
+        </TabPanel>
+
+        <TabPanel>
+          <AddNewQuestion />
         </TabPanel>
       </TabPanels>
     </Tabs>
