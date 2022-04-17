@@ -47,7 +47,7 @@ export default function AddNewCandidate() {
         rules={[
           {
             required: true,
-            message: "Please input Email!",
+            message: "Please input Candidate Email!",
           },
         ]}
       >
