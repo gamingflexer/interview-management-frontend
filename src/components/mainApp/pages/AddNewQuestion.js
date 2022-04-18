@@ -1,18 +1,47 @@
 import React, { useState } from "react";
 import Questions from "../Questions";
+import { Button } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import "./ViewCandidates.css";
+import "./AddNewCandidate.css";
+import { Input } from "@chakra-ui/react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
 
 function AddNewQuestion() {
-  const [quests, setQuests] = useState([
-    { title: "How To Reverse a Linked List", id: 1 },
-    { title: "Explain Micro Services Architecture", id: 2 },
-    { title: "What are four pillars of OOP Paradigm", id: 3 },
-    { title: "Explain dijkstras algorithm", id: 4 },
-  ]);
-
   return (
-    <div>
-      <Questions quests={quests} />
-    </div>
+    <TableContainer>
+      <Table variant="simple">
+        <TableCaption>Add New Question</TableCaption>
+        <Thead>
+          <Tr>
+            <Th>SR. No.</Th>
+            <Th>Question</Th>
+            <Th>Action</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>1</Td>
+            <Td>
+              <Input placeholder="Question..." size="lg" />
+            </Td>
+            <Td className="candidate__buttons">
+              <Button>ADD</Button>
+            </Td>
+          </Tr>
+        </Tbody>
+      </Table>
+    </TableContainer>
   );
 }
 

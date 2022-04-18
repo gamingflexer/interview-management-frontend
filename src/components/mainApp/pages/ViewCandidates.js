@@ -75,13 +75,6 @@ export default function ViewCandidates() {
           <Tbody>
             <Candidates candidates={candidates} />
           </Tbody>
-          <Tfoot>
-            {/* <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
-            </Tr> */}
-          </Tfoot>
         </Table>
       </TableContainer>
     </div>
