@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Questions from "../Questions";
 import { Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import "./ViewCandidates.css";
 import "./AddNewCandidate.css";
 import { Input } from "@chakra-ui/react";
@@ -9,7 +8,6 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
@@ -18,6 +16,11 @@ import {
 } from "@chakra-ui/react";
 
 function AddNewQuestion() {
+  var handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event.target.elements.newquestion.value); // from elements property
+    //console.log(event.target.username.value); // or directly
+  };
   return (
     <TableContainer>
       <Table variant="simple">
@@ -33,10 +36,10 @@ function AddNewQuestion() {
           <Tr>
             <Td>1</Td>
             <Td>
-              <Input placeholder="Question..." size="lg" />
+              <Input placeholder="Question..." size="lg" id="newquestion" />
             </Td>
             <Td className="candidate__buttons">
-              <Button>ADD</Button>
+              <Button onClick={handleSubmit}>ADD</Button>
             </Td>
           </Tr>
         </Tbody>

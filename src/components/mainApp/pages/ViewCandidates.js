@@ -1,20 +1,15 @@
-import { Button } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "./ViewCandidates.css";
 import Candidates from "./Candidates";
-import ViewReport from "./ViewReport";
 import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
-  Td,
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 
 export default function ViewCandidates() {
   const [candidates, setCandidates] = useState([
@@ -22,7 +17,7 @@ export default function ViewCandidates() {
       id: 1,
       name: "Adwait",
       email: "adwaitswim@gmail.com",
-      contact: "23y80y3010270",
+      contact: "123456789",
       qualification: "BTech",
       age: "20",
       address: "Thane",
@@ -31,7 +26,7 @@ export default function ViewCandidates() {
       id: 2,
       name: "Om",
       email: "om@gmail.com",
-      contact: "23y80y3010270",
+      contact: "123456789",
       qualification: "BTech",
       age: "20",
       address: "Gujju",
@@ -40,7 +35,7 @@ export default function ViewCandidates() {
       id: 3,
       name: "XYZ",
       email: "aaqsq@gmail.com",
-      contact: "23y80y3010270",
+      contact: "123456789",
       qualification: "BTech",
       age: "20",
       address: "Pakistan",
@@ -49,7 +44,7 @@ export default function ViewCandidates() {
       id: 4,
       name: "blah blah",
       email: "ewfow@gmail.com",
-      contact: "fo2qf",
+      contact: "123456789",
       qualification: "BTech",
       age: "20",
       address: "Panvel",

@@ -1,7 +1,6 @@
 import { Button } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { Tr, Td } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 
 const Questions = (props) => {
   const quests = props.quests;
