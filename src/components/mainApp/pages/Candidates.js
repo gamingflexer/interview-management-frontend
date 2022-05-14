@@ -1,6 +1,6 @@
 import "./ViewCandidates.css";
 import { Button } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { Tr, Td } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -17,11 +17,11 @@ export default function Candidates(props) {
           <Td isNumeric>{candidate.age}</Td>
           <Td>{candidate.name}</Td>
           <Td className="candidate__buttons" style={{ display: "inline" }}>
-            <Link to={"/viewreport"}>
+            <Link to={`/viewreport/${candidate.id}`}>
               <Button style={{ marginBottom: 10 }}>View</Button>
             </Link>
 
-            <Button style={{ marginBottom: 10 }}>Take Exam</Button>
+            <Button style={{ marginBottom: 10 }}>GRADE</Button>
             <Button style={{ marginBottom: 10 }}>Remove</Button>
           </Td>
         </Tr>

@@ -12,7 +12,11 @@ export default function App() {
         <Routes>
           <Route exact path={"/"} element={<Header />}></Route>
           <Route exact path={"/home"} element={<Home />}></Route>
-          <Route exact path={"/viewreport"} element={<ViewReport />}></Route>
+          <Route
+            exact
+            path={"/viewreport/:candidateId"}
+            element={<ViewReport />}
+          ></Route>
           <Route exact path={"/apply"} element={<ApplicationForm />}></Route>
         </Routes>
       </Router>

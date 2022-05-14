@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import Questions from "../Questions";
+import React from "react";
 import { Button } from "@chakra-ui/react";
 import "./ViewCandidates.css";
-import "./AddNewCandidate.css";
 import { Input } from "@chakra-ui/react";
 import {
   Table,
