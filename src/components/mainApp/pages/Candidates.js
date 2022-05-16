@@ -17,7 +17,7 @@ export default function Candidates(props) {
           <Td isNumeric>{candidate.age}</Td>
           <Td>{candidate.name}</Td>
           <Td className="candidate__buttons" style={{ display: "inline" }}>
-            <Link to={`/viewreport/${candidate.id}`}>
+            <Link to={`/candidate/${candidate.id}`}>
               <Button style={{ marginBottom: 10 }}>View</Button>
             </Link>
 
