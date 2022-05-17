@@ -3,7 +3,7 @@ import ViewCandidates from "./ViewCandidates";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import AddNewQuestion from "./AddNewQuestion";
 import ViewQuestions from "./ViewQuestions";
-import Navbar from "../../Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (

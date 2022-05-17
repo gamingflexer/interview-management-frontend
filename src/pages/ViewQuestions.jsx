@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Questions from "../Questions";
+import Questions from "../components/Questions";
 import "./ViewCandidates.css";
 import {
   Table,

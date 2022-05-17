@@ -1,7 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../../Navbar";
+import Navbar from "../components/Navbar";
 
 export default function CandidateInfo() {
   const [disabled, setDisabled] = useState(true);
