@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
 import Questions from "./Questions";
+import Candidates from "./Candidates";
 
-export { Navbar, Questions };
+export { Navbar, Questions, Candidates };

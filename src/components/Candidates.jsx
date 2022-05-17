@@ -1,4 +1,3 @@
-import "./ViewCandidates.css";
 import { Button } from "@chakra-ui/react";
 import React from "react";
 import { Tr, Td } from "@chakra-ui/react";

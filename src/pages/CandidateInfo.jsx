@@ -8,11 +8,6 @@ export default function CandidateInfo() {
 
   const navigate = useNavigate();
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    navigate("../");
-  }
-
   const params = useParams();
   const userId = params.userId;
 
@@ -112,13 +107,13 @@ export default function CandidateInfo() {
                 </span>
                 <button
                   className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
-                  onClick={handleSubmit}
+                  onClick={() => navigate("../", { replace: true })}
                 >
                   Cancel
                 </button>
                 <button
                   className="flex ml-2 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
-                  onClick={handleSubmit}
+                  onClick={() => navigate("../", { replace: true })}
                 >
                   OK
                 </button>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ViewCandidates.css";
-import Candidates from "./Candidates";
+import Candidates from "../components/Candidates";
 import {
   Table,
   Thead,
