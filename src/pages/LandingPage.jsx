@@ -64,7 +64,7 @@ export default function LandingPage() {
               href="/home"
               class="block bg-white hover:bg-gray-100 py-3 px-4 rounded-lg text-lg text-gray-800 font-bold uppercase mt-10"
             >
-              Discover
+              Get Started
             </a>
           </div>
         </div>
