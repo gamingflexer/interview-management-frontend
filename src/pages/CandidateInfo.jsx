@@ -1,10 +1,12 @@
 import { React, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
 export default function CandidateInfo() {
-  const [disabled, setDisabled] = useState(true);
+  const location = useLocation();
+  const isDisabled = location.state.isDisabled;
+  console.log(isDisabled);
 
   const navigate = useNavigate();
 
@@ -20,14 +22,14 @@ export default function CandidateInfo() {
     async function fetchCandidateData() {
       const request = await axios.get(CANDIDATE_PROFILE_URL);
       setCandidateData(request.data);
-      console.log(request);
+      //console.log(request);
       return request;
     }
     fetchCandidateData();
     return;
   }, []);
 
-  console.log(candidateData);
+  //console.log(candidateData);
 
   return (
     <div>
@@ -47,11 +49,11 @@ export default function CandidateInfo() {
                   Description
                 </h1>
               </div>
-              <p className="leading-relaxed mb-4">
+              <div className="leading-relaxed mb-4">
                 <table className="text-left">
                   <tr>
                     <th>Name</th>
-                    <td>Adwait Gawade</td>
+                    <td className="text-right">Adwait Gawade</td>
                   </tr>
                   <tr>
                     <th>Email</th>
@@ -70,14 +72,14 @@ export default function CandidateInfo() {
                     <td>B.Tech.</td>
                   </tr>
                 </table>
-              </p>
+              </div>
               <div className="flex border-t border-gray-200 py-2">
                 <span className="text-gray-500">Question 1</span>
                 <span className="ml-auto text-gray-900">
                   <input
                     className="typing-container"
                     placeholder={"marks"} /* write total marks */
-                    disabled={disabled}
+                    disabled={isDisabled}
                   />
                 </span>
               </div>
@@ -87,7 +89,7 @@ export default function CandidateInfo() {
                   <input
                     className="typing-container"
                     placeholder={"marks"}
-                    disabled={disabled}
+                    disabled={isDisabled}
                   />
                 </span>
               </div>
@@ -97,7 +99,7 @@ export default function CandidateInfo() {
                   <input
                     className="typing-container"
                     placeholder={"marks"}
-                    disabled={disabled}
+                    disabled={isDisabled}
                   />
                 </span>
               </div>
@@ -109,7 +111,7 @@ export default function CandidateInfo() {
                   className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
                   onClick={() => navigate("../", { replace: true })}
                 >
-                  Cancel
+                  Edit
                 </button>
                 <button
                   className="flex ml-2 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
@@ -120,7 +122,7 @@ export default function CandidateInfo() {
               </div>
             </div>
             <img
-              alt="ecommerce"
+              alt="candidate"
               className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
               src="https://cdn1.iconfinder.com/data/icons/human-resources-1-6/128/76-1024.png"
             />
