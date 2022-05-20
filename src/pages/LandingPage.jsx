@@ -7,13 +7,14 @@ export default function LandingPage() {
         <img
           src="https://www.tailwind-kit.com/images/landscape/5.svg"
           className="absolute h-full w-full object-cover"
+          alt="bg-img"
         />
         <div className="inset-0 bg-black opacity-25 absolute"></div>
         <header className="absolute top-0 left-0 right-0 z-20">
           <nav className="container mx-auto px-6 md:px-12 py-4">
             <div className="md:flex justify-between items-center">
               <div className="flex justify-between items-center">
-                <a href="#" className="text-white">
+                <a href="/" className="text-white">
                   <svg
                     className="w-8 mr-2 fill-current"
                     data-name="Capa 1"
@@ -39,13 +40,22 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="hidden md:flex items-center">
-                <a className="text-lg uppercase mx-3 text-white cursor-pointer hover:text-gray-300">
+                <a
+                  className="text-lg uppercase mx-3 text-white cursor-pointer hover:text-gray-300"
+                  href="/"
+                >
                   About us
                 </a>
-                <a className="text-lg uppercase mx-3 text-white cursor-pointer hover:text-gray-300">
+                <a
+                  className="text-lg uppercase mx-3 text-white cursor-pointer hover:text-gray-300"
+                  href="/"
+                >
                   Calendar
                 </a>
-                <a className="text-lg uppercase mx-3 text-white cursor-pointer hover:text-gray-300">
+                <a
+                  className="text-lg uppercase mx-3 text-white cursor-pointer hover:text-gray-300"
+                  href="/"
+                >
                   Contact us
                 </a>
               </div>
