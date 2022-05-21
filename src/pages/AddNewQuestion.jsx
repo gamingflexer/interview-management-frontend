@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@chakra-ui/react";
 import "./ViewCandidates.css";
 import { Input } from "@chakra-ui/react";
@@ -14,11 +14,18 @@ import {
 } from "@chakra-ui/react";
 
 function AddNewQuestion() {
-  var handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.elements.newquestion.value); // from elements property
-    //console.log(event.target.username.value); // or directly
+  // Input Field Question Value
+  // TODO: Add question to databse
+  const [question, setQuestion] = useState("");
+
+  const handleChange = (e) => {
+    setQuestion(e.target.value);
   };
+
+  var handleSubmit = (event) => {
+    console.log(question);
+  };
+
   return (
     <TableContainer>
       <Table variant="simple">
@@ -34,7 +41,12 @@ function AddNewQuestion() {
           <Tr>
             <Td>1</Td>
             <Td>
-              <Input placeholder="Question..." size="lg" id="newquestion" />
+              <Input
+                placeholder="Question..."
+                size="lg"
+                value={question}
+                onChange={handleChange}
+              />
             </Td>
             <Td className="candidate__buttons">
               <Button onClick={handleSubmit}>ADD</Button>
