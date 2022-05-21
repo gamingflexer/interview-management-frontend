@@ -4,17 +4,17 @@ import { Tr, Td } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function Candidates(props) {
-  const candidates = props.candidates;
+  const candidateInfo = props.candidateInfo;
   return (
     <>
-      {candidates.map((candidate) => (
+      {candidateInfo.map((candidate) => (
         <Tr>
+          <Td>{candidate.id}</Td>
           <Td>{candidate.name}</Td>
           <Td>{candidate.email}</Td>
-          <Td>{candidate.contact}</Td>
-          <Td>{candidate.qualification}</Td>
-          <Td isNumeric>{candidate.age}</Td>
-          <Td>{candidate.name}</Td>
+          <Td>{candidate.exp}</Td>
+          <Td>{candidate.edu}</Td>
+          <Td>{candidate.nexp}</Td>
           <Td className="candidate__buttons" style={{ display: "inline" }}>
             <Link
               to={`/candidate/${candidate.id}`}

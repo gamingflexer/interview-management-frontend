@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ViewCandidates.css";
+import axios from "../axios";
+import requests from "../requests";
 import Candidates from "../components/Candidates";
 import {
   Table,
@@ -12,44 +14,19 @@ import {
 } from "@chakra-ui/react";
 
 export default function ViewCandidates() {
-  const [candidates, setCandidates] = useState([
-    {
-      id: 1,
-      name: "Adwait",
-      email: "adwaitswim@gmail.com",
-      contact: "123456789",
-      qualification: "BTech",
-      age: "20",
-      address: "Thane",
-    },
-    {
-      id: 2,
-      name: "Om",
-      email: "om@gmail.com",
-      contact: "123456789",
-      qualification: "BTech",
-      age: "20",
-      address: "Gujju",
-    },
-    {
-      id: 3,
-      name: "XYZ",
-      email: "aaqsq@gmail.com",
-      contact: "123456789",
-      qualification: "BTech",
-      age: "20",
-      address: "Pakistan",
-    },
-    {
-      id: 4,
-      name: "blah blah",
-      email: "ewfow@gmail.com",
-      contact: "123456789",
-      qualification: "BTech",
-      age: "20",
-      address: "Panvel",
-    },
-  ]);
+  const [candidateInfo, setCandidateInfo] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchCandidates);
+
+      setCandidateInfo(request.data.data);
+      return request;
+    }
+    fetchData();
+  }, []);
+
+  console.log(typeof candidateInfo);
 
   return (
     <div>
@@ -58,17 +35,17 @@ export default function ViewCandidates() {
           <TableCaption>Candidate Data</TableCaption>
           <Thead>
             <Tr>
+              <Th>ID</Th>
               <Th>Candidate Name</Th>
               <Th>Email</Th>
-              <Th>Contact</Th>
-              <Th>Qualification</Th>
-              <Th isNumeric>Age</Th>
-              <Th>Address</Th>
+              <Th>Experience</Th>
+              <Th>Education</Th>
+              <Th>Years Of Experience</Th>
               <Th>Action</Th>
             </Tr>
           </Thead>
           <Tbody>
-            <Candidates candidates={candidates} />
+            <Candidates candidateInfo={candidateInfo} />
           </Tbody>
         </Table>
       </TableContainer>

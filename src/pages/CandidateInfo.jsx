@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../axios";
 import Navbar from "../components/Navbar";
 
 export default function CandidateInfo() {
@@ -19,7 +19,7 @@ export default function CandidateInfo() {
   const [candidateData, setCandidateData] = useState("");
   useEffect(() => {
     async function fetchCandidateData() {
-      const request = await axios.get(CANDIDATE_PROFILE_URL);
+      const request = await axios.get();
       setCandidateData(request.data);
       //console.log(request);
       return request;
