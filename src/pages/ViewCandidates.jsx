@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ViewCandidates.css";
-import axios from "../axios";
-import requests from "../requests";
+import axios from "../api/axios";
+import requests from "../api/requests";
 import Candidates from "../components/Candidates";
 import {
   Table,
@@ -19,14 +19,13 @@ export default function ViewCandidates() {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchCandidates);
-
       setCandidateInfo(request.data.data);
       return request;
     }
     fetchData();
-  }, []);
+  }, [candidateInfo]);
 
-  console.log(typeof candidateInfo);
+  //console.log(candidateInfo);
 
   return (
     <div>
@@ -41,6 +40,7 @@ export default function ViewCandidates() {
               <Th>Experience</Th>
               <Th>Education</Th>
               <Th>Years Of Experience</Th>
+              <Th>Achievements</Th>
               <Th>Action</Th>
             </Tr>
           </Thead>

@@ -8,7 +8,7 @@ const Questions = (props) => {
   return (
     <>
       {quests.map((quest) => (
-        <Tr>
+        <Tr key={quest.id}>
           <Td>{quest.id} </Td>
           <Td>{quest.title}</Td>
           <Td
