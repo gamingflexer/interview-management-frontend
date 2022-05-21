@@ -4,20 +4,19 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 
 export default function CandidateInfo() {
+  const params = useParams();
+  const userId = params.userId;
+
+  const navigate = useNavigate();
+
   const location = useLocation();
   const isDisabled = location.state.isDisabled;
   console.log(isDisabled);
 
-  const navigate = useNavigate();
-
-  const params = useParams();
-  const userId = params.userId;
-
+  // Candidate Data API
   const CANDIDATE_PROFILE_URL =
     "https://game-of-thrones-quotes.herokuapp.com/v1/random";
-
   const [candidateData, setCandidateData] = useState("");
-
   useEffect(() => {
     async function fetchCandidateData() {
       const request = await axios.get(CANDIDATE_PROFILE_URL);
@@ -28,6 +27,14 @@ export default function CandidateInfo() {
     fetchCandidateData();
     return;
   }, []);
+
+  const questions = [
+    { id: 0, q: "Question" },
+    { id: 1, q: "Reverse Linked List" },
+    { id: 2, q: "Sort Linked List" },
+    { id: 3, q: "Bubble Sort" },
+    { id: 4, q: "Two Sum" },
+  ];
 
   //console.log(candidateData);
 
@@ -74,7 +81,13 @@ export default function CandidateInfo() {
                 </table>
               </div>
               <div className="flex border-t border-gray-200 py-2">
-                <span className="text-gray-500">Question 1</span>
+                <select className="w-9/12">
+                  {questions.map((ques) => (
+                    <option key={ques.id} value={ques.q}>
+                      {ques.q}
+                    </option>
+                  ))}
+                </select>
                 <span className="ml-auto text-gray-900">
                   <input
                     className="typing-container"
@@ -84,7 +97,13 @@ export default function CandidateInfo() {
                 </span>
               </div>
               <div className="flex border-t border-gray-200 py-2">
-                <span className="text-gray-500">Question 2</span>
+                <select className="w-9/12">
+                  {questions.map((ques) => (
+                    <option key={ques.id} value={ques.q}>
+                      {ques.q}
+                    </option>
+                  ))}
+                </select>
                 <span className="ml-auto text-gray-900">
                   <input
                     className="typing-container"
@@ -94,7 +113,13 @@ export default function CandidateInfo() {
                 </span>
               </div>
               <div className="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span className="text-gray-500">Question 3</span>
+                <select className="w-9/12">
+                  {questions.map((ques) => (
+                    <option key={ques.id} value={ques.q}>
+                      {ques.q}
+                    </option>
+                  ))}
+                </select>
                 <span className="ml-auto text-gray-900">
                   <input
                     className="typing-container"
