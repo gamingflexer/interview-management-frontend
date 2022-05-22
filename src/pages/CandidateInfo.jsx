@@ -1,42 +1,55 @@
 import { React, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
+import { axios, requests } from "../api";
 import Navbar from "../components/Navbar";
 
 export default function CandidateInfo() {
   const params = useParams();
   const userId = params.userId;
 
-  const navigate = useNavigate();
-
   const location = useLocation();
   const isDisabled = location.state.isDisabled;
   console.log(isDisabled);
 
-  // Candidate Data API
-  const CANDIDATE_PROFILE_URL =
-    "https://game-of-thrones-quotes.herokuapp.com/v1/random";
-  const [candidateData, setCandidateData] = useState("");
-  useEffect(() => {
-    async function fetchCandidateData() {
-      const request = await axios.get();
-      setCandidateData(request.data);
-      //console.log(request);
-      return request;
-    }
-    fetchCandidateData();
-    return;
-  }, []);
+  const [quest, setQuest] = useState([]);
 
-  const questions = [
-    { id: 0, q: "Question" },
+  /* const questions = [
     { id: 1, q: "Reverse Linked List" },
     { id: 2, q: "Sort Linked List" },
     { id: 3, q: "Bubble Sort" },
     { id: 4, q: "Two Sum" },
-  ];
+  ]; */
 
-  //console.log(candidateData);
+  const [valueQ1, setValueQ1] = useState("");
+  const [valueQ2, setValueQ2] = useState("");
+  const [valueQ3, setValueQ3] = useState("");
+
+  const handleChange1 = (e) => {
+    setValueQ1(e.target.value);
+  };
+  const handleChange2 = (e) => {
+    setValueQ2(e.target.value);
+  };
+  const handleChange3 = (e) => {
+    setValueQ3(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    console.log(valueQ1);
+    console.log(valueQ2);
+    console.log(valueQ3);
+  };
+
+  useEffect(() => {
+    async function fetchQuestions() {
+      const request = await axios.get(requests.fetchQuestions);
+      setQuest(request.data.data);
+      return request;
+    }
+    fetchQuestions();
+  });
+
+  console.log(quest[0]);
 
   return (
     <div>
@@ -80,70 +93,74 @@ export default function CandidateInfo() {
                   </tr>
                 </table>
               </div>
-              <div className="flex border-t border-gray-200 py-2">
-                <select className="w-9/12">
-                  {questions.map((ques) => (
-                    <option key={ques.id} value={ques.q}>
-                      {ques.q}
-                    </option>
-                  ))}
-                </select>
-                <span className="ml-auto text-gray-900">
-                  <input
-                    className="typing-container"
-                    placeholder={"marks"} /* write total marks */
-                    disabled={isDisabled}
-                  />
-                </span>
-              </div>
-              <div className="flex border-t border-gray-200 py-2">
-                <select className="w-9/12">
-                  {questions.map((ques) => (
-                    <option key={ques.id} value={ques.q}>
-                      {ques.q}
-                    </option>
-                  ))}
-                </select>
-                <span className="ml-auto text-gray-900">
-                  <input
-                    className="typing-container"
-                    placeholder={"marks"}
-                    disabled={isDisabled}
-                  />
-                </span>
-              </div>
-              <div className="flex border-t border-b mb-6 border-gray-200 py-2">
-                <select className="w-9/12">
-                  {questions.map((ques) => (
-                    <option key={ques.id} value={ques.q}>
-                      {ques.q}
-                    </option>
-                  ))}
-                </select>
-                <span className="ml-auto text-gray-900">
-                  <input
-                    className="typing-container"
-                    placeholder={"marks"}
-                    disabled={isDisabled}
-                  />
-                </span>
-              </div>
-              <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
-                  Total
-                </span>
-                <button
-                  className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
-                  onClick={() => navigate("../", { replace: true })}
-                >
-                  Edit
-                </button>
-                <button
-                  className="flex ml-2 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded"
-                  onClick={() => navigate("../", { replace: true })}
-                >
-                  OK
-                </button>
+              <div>
+                <div className="flex border-t border-gray-200 py-2">
+                  {/* Select Question 1 */}
+                  <select
+                    className="w-64"
+                    id="dropdown"
+                    value={valueQ1}
+                    onChange={handleChange1}
+                  >
+                    {quest.map((ques) => (
+                      <option key={ques.qid} value={ques.questions}>
+                        {ques.questions}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="ml-auto text-gray-900">
+                    <input
+                      className="typing-container"
+                      placeholder={"marks"} /* write total marks */
+                      //disabled={isDisabled}
+                    />
+                  </span>
+                </div>
+                <div className="flex border-t border-gray-200 py-2">
+                  {/* Select Question 2 */}
+                  <select
+                    className="w-64"
+                    id="dropdown"
+                    value={valueQ2}
+                    onChange={handleChange2}
+                  >
+                    {quest.map((ques) => (
+                      <option key={ques.qid} value={ques.questions}>
+                        {ques.questions}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="ml-auto text-gray-900">
+                    <input
+                      className="typing-container"
+                      placeholder={"marks"}
+                      //disabled={isDisabled}
+                    />
+                  </span>
+                </div>
+                <div className="flex border-t border-b mb-6 border-gray-200 py-2">
+                  {/* Select Question 3 */}
+                  <select
+                    className="w-64"
+                    id="dropdown"
+                    value={valueQ3}
+                    onChange={handleChange3}
+                  >
+                    {quest.map((ques) => (
+                      <option key={ques.qid} value={ques.questions}>
+                        {ques.questions}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="ml-auto text-gray-900">
+                    <input
+                      className="typing-container"
+                      placeholder={"marks"}
+                      //disabled={isDisabled}
+                    />
+                  </span>
+                </div>
+                <button onClick={handleSubmit}>Submit</button>
               </div>
             </div>
             <img

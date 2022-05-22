@@ -1,33 +1,31 @@
 import { Button } from "@chakra-ui/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Tr, Td } from "@chakra-ui/react";
+import { axios, requests } from "../api";
 
-const Questions = (props) => {
-  const quests = props.quests;
+const Questions = () => {
+  const [allQuestions, setAllQuestions] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchQuestions);
+      setAllQuestions(request.data.data);
+      return request;
+    }
+    fetchData();
+  }, [allQuestions]);
 
   return (
     <>
-      {quests.map((quest) => (
-        <Tr key={quest.id}>
-          <Td>{quest.id} </Td>
-          <Td>{quest.title}</Td>
-          <Td
-            className="candidate__buttons"
-            style={{
-              display: "inline",
-              width: 50,
-            }}
-          >
+      {allQuestions.map((quest) => (
+        <Tr key={quest.qid}>
+          <Td>{quest.qid} </Td>
+          <Td>{quest.questions}</Td>
+          <Td className="candidate__buttons">
             <Button
-              style={{
-                marginBottom: 10,
-              }}
-            >
-              Edit
-            </Button>
-            <Button
-              style={{
-                marginBottom: 10,
+              onClick={() => {
+                //axios.post(requests.deleteQuestion`${quest.qid}`);
+                //console.log(`${quest.qid}`);
               }}
             >
               Remove

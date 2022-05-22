@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/react";
 import React from "react";
 import { Tr, Td } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import axios from "../api/axios";
+import { axios } from "../api";
 
 export default function Candidates(props) {
   const candidateInfo = props.candidateInfo;
