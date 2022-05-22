@@ -13,10 +13,25 @@ const Questions = (props) => {
           <Td>{quest.title}</Td>
           <Td
             className="candidate__buttons"
-            style={{ display: "inline", width: 50 }}
+            style={{
+              display: "inline",
+              width: 50,
+            }}
           >
-            <Button style={{ marginBottom: 10 }}>Edit</Button>
-            <Button style={{ marginBottom: 10 }}>Remove</Button>
+            <Button
+              style={{
+                marginBottom: 10,
+              }}
+            >
+              Edit
+            </Button>
+            <Button
+              style={{
+                marginBottom: 10,
+              }}
+            >
+              Remove
+            </Button>
           </Td>
         </Tr>
       ))}
