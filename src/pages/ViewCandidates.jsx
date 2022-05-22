@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ViewCandidates.css";
-import axios from "../api/axios";
-import requests from "../api/requests";
+import { axios, requests } from "../api";
 import Candidates from "../components/Candidates";
 import {
   Table,

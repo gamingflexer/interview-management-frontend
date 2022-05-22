@@ -9,16 +9,18 @@ export default function CandidateInfo() {
 
   const location = useLocation();
   const isDisabled = location.state.isDisabled;
-  console.log(isDisabled);
 
   const [quest, setQuest] = useState([]);
 
-  /* const questions = [
-    { id: 1, q: "Reverse Linked List" },
-    { id: 2, q: "Sort Linked List" },
-    { id: 3, q: "Bubble Sort" },
-    { id: 4, q: "Two Sum" },
-  ]; */
+  useEffect(() => {
+    async function fetchQuestions() {
+      const request = await axios.get(requests.fetchQuestions);
+      setQuest(request.data.data);
+      return request;
+    }
+    fetchQuestions();
+  });
+  console.log(quest);
 
   const [valueQ1, setValueQ1] = useState("");
   const [valueQ2, setValueQ2] = useState("");
@@ -39,17 +41,6 @@ export default function CandidateInfo() {
     console.log(valueQ2);
     console.log(valueQ3);
   };
-
-  useEffect(() => {
-    async function fetchQuestions() {
-      const request = await axios.get(requests.fetchQuestions);
-      setQuest(request.data.data);
-      return request;
-    }
-    fetchQuestions();
-  });
-
-  console.log(quest[0]);
 
   return (
     <div>
@@ -101,6 +92,7 @@ export default function CandidateInfo() {
                     id="dropdown"
                     value={valueQ1}
                     onChange={handleChange1}
+                    disabled={isDisabled}
                   >
                     {quest.map((ques) => (
                       <option key={ques.qid} value={ques.questions}>
@@ -112,7 +104,7 @@ export default function CandidateInfo() {
                     <input
                       className="typing-container"
                       placeholder={"marks"} /* write total marks */
-                      //disabled={isDisabled}
+                      disabled={isDisabled}
                     />
                   </span>
                 </div>
@@ -123,6 +115,7 @@ export default function CandidateInfo() {
                     id="dropdown"
                     value={valueQ2}
                     onChange={handleChange2}
+                    disabled={isDisabled}
                   >
                     {quest.map((ques) => (
                       <option key={ques.qid} value={ques.questions}>
@@ -134,7 +127,7 @@ export default function CandidateInfo() {
                     <input
                       className="typing-container"
                       placeholder={"marks"}
-                      //disabled={isDisabled}
+                      disabled={isDisabled}
                     />
                   </span>
                 </div>
@@ -145,6 +138,7 @@ export default function CandidateInfo() {
                     id="dropdown"
                     value={valueQ3}
                     onChange={handleChange3}
+                    disabled={isDisabled}
                   >
                     {quest.map((ques) => (
                       <option key={ques.qid} value={ques.questions}>
@@ -156,7 +150,7 @@ export default function CandidateInfo() {
                     <input
                       className="typing-container"
                       placeholder={"marks"}
-                      //disabled={isDisabled}
+                      disabled={isDisabled}
                     />
                   </span>
                 </div>
