@@ -1,8 +1,9 @@
 const requests = {
   fetchCandidates: "seec",
-  addQuestionToDB: "addq=",
-  deteleCandidate: "deletec=",
   fetchQuestions: "seeq",
+  addQuestion: "addq=",
+  deteleCandidate: "deletec=",
+  deleteQuestion: "deleteq=",
 };
 
 export default requests;
